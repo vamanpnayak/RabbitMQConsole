@@ -10,15 +10,30 @@ namespace RabbitMQConsole
 {
     class Program
     {
+        //static void Main(string[] args)
+        //{
+        //    using (var bus = RabbitHutch.CreateBus("host=localhost"))
+        //    {
+        //        var input = "";
+        //        Console.WriteLine("Enter a message 'quit' to close");
+        //        while ((input = Console.ReadLine()) != "quit")
+        //        {
+        //            bus.Publish(new MyMessage{ Text = input});
+        //        }
+        //    }
+        //}
+
         static void Main(string[] args)
         {
-            using (var bus = RabbitHutch.CreateBus("foobar"))
+            
+            using (var bus = RabbitHutch.CreateBus("host=spotted-monkey.rmq.cloudamqp.com;virtualHost=xswwhewh;username=xswwhewh;password="))
             {
                 var input = "";
                 Console.WriteLine("Enter a message 'quit' to close");
+                
                 while ((input = Console.ReadLine()) != "quit")
                 {
-                    bus.Publish(new MyMessage{ Text = input});
+                    bus.Publish(input);
                 }
             }
         }
